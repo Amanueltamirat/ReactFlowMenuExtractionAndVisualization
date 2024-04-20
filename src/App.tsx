@@ -1,6 +1,6 @@
 import React from 'react'
-import MenuExtraction from './components/MenuExtraction.tsx';
-import ReactflowRender from './centeralPanel/ReactflowRender.tsx';
+import MenuExtraction from './components/menuextraction/MenuExtraction.tsx';
+import ReactflowRender from './components/centeralPanel/ReactflowRender.tsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {motion} from 'framer-motion'
@@ -28,7 +28,7 @@ const textVariants = {
      }
 }
 
-}
+};
 
 
 
@@ -39,7 +39,7 @@ function App() {
         <div className='container'>
             <MenuExtraction/>
            <ReactflowRender/>
-             <ToastContainer />
+             <ToastContainer position='bottom-center' />
              
         </div>
     </motion.div>

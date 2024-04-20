@@ -15,7 +15,22 @@ export default function NodeProvider({
 }: NodeProps<{ name: string; code: string }>) {
   const { setNodes } = useReactFlow();
 
+ const onProviderClick = (name, code) => {
+    const location = Math.random() * 200;
+
+    setNodes((prevNodes) => [
+      ...prevNodes,
+      {
+        id: `${prevNodes.length + 1}`,
+        data: { name, code },
+        type: "nodeProvider",
+        position: { x: location, y: location },
+      },
+    ]);
+  };
+
   return (
+    <>
     <Flex
       borderRadius={"24px"}
       border="1px solid #5e5eff"
@@ -27,10 +42,11 @@ export default function NodeProvider({
       width="140px"
       display='flex'
       alignItems="center"
+    
     >
-      <Flex grow="1">
-        <Text textAlign='center' fontSize="small" >
-          {name}
+      <Flex grow="1" _active={{color:'blue'}} onClick={() => onProviderClick(name, code)} _hover={{color:'blue'}}>
+        <Text textAlign='center' fontSize="12px" height='15px' >
+          {name} (duplicate me)
         </Text>
       </Flex>
       <IconButton
@@ -46,7 +62,8 @@ export default function NodeProvider({
         }
       />
       <CustomHandle type="target" position={Position.Left} />
-      <CustomHandle type="target" position={Position.Right} />
+      <CustomHandle type="source" position={Position.Right} />
     </Flex>
+    </>
   );
 }

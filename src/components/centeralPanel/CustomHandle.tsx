@@ -8,7 +8,6 @@ export default function CustomHandle(props: HandleProps) {
         width: 8,
         height: 8,
         background: "black",
-        // border: "2px solid black",
       }}
       {...props}
     />

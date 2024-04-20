@@ -32,13 +32,13 @@ const initialNodes: Node[] = [
    {
     id: "2",
     data: { name: "Input", code: "Gp" },
-    position: { x: 550, y: -50 },
+    position: { x: 300, y: -50 },
     type: "nodeProvider",
   },
   {
     id: "3",
     data: { name: "Output", code: "St" },
-    position: { x: 550, y: 125 },
+    position: { x: 300, y: 125 },
     type: "nodeProvider",
   },  
 {
@@ -92,12 +92,10 @@ const onConnect = useCallback(
       };
       setEdges((prevEdges) => addEdge(edge, prevEdges));
     },
-    [edges]
+    [edges, setEdges]
   );
-
-
   return (
-    <div className="react-flow" style={{height:'400px', width:'700px'}}>
+    <div className="react-flow" style={{height:'450px', width:'750px'}}>
       <ReactFlow nodesDraggable={true} nodes={nodes} edges={edges}
       fitView
       onNodesChange={onNodesChange}
@@ -109,7 +107,7 @@ const onConnect = useCallback(
         <Background/>
         <Controls/>
       </ReactFlow>
-       <motion.div  className='sliding-text-container' variants={sliderVariants} initial='initial' animate='animate'>
+       <motion.div drag={false}  className='sliding-text-container' variants={sliderVariants} initial='initial' animate='animate'>
            This is EPhone
         </motion.div>
     </div>

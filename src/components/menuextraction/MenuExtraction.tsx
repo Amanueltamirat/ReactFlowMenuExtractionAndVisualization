@@ -1,55 +1,59 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import LoadingSkeleton from "./LoadingSkeleton.tsx";
-// import 'react-toastify/dist/ReactToastify.css';
-// import { ChakraProvider } from '@chakra-ui/react';
+import {motion, AnimatePresence} from 'framer-motion'
 
 function MenuExtraction() {
   const [inputText, setInputText] = useState('');
   const [extractedMenuItems, setExtractedMenuItems] = useState([]);
-  const [loading, setLoading] = useState(false)
-//  <ToastContainer position="bottom-center" limit={1} />
+  const [clicked, setClicked] = useState(false)
 
 function extractMenuItems(inputText:any) {
-  setLoading(true)
   const regex = /^\d+:\s*.*$/gm;
-// const regex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-
   const menuItems = inputText.match(regex) || [];
  
-  // if(inputText.length < 5){
-  //   alert('write atleast five charactes')
-  // }
-setLoading(false)
-// return []
+  if(menuItems.length < 1){
+    toast.error('please check you input')
+  }
   return menuItems;
 }
-
-
   function handleExtractButtonClick() {
+
     const menuItems = extractMenuItems(inputText);
     setExtractedMenuItems(menuItems);
+    setClicked(true)
   }
 
   return (
     <div className="menu_extracter">
       <div className="upper-container">
       <textarea placeholder="Search..." value={inputText} onChange={(e) => setInputText(e.target.value)} />
-      <button onClick={handleExtractButtonClick}>{loading? <LoadingSkeleton/>:'Extract'}</button>
+      <button onClick={handleExtractButtonClick}>Extract</button>
       </div>
       <div className="items">
         {extractedMenuItems.length > 0 ? (
           <div>
+            <p>Your menu items:</p>
+            <motion.div>
+              <AnimatePresence>
             {extractedMenuItems.map((menuItem, index) => (
               <>
-              <li key={index}>{menuItem}</li>
+              <motion.li 
+               initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ opacity: 0 }}
+              key={index}
+              >{menuItem}</motion.li>
               </>
             ))}
+            </AnimatePresence>
+            </motion.div>
           </div>
         ) : (
-          <>
+          clicked &&
+          <div className="not-found">
           <p>No valid menu items found</p>
-          </>
+          </div>
+        
         )}
       </div>
     </div>

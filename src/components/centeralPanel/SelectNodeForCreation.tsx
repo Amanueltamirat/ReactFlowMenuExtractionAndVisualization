@@ -3,15 +3,15 @@ import { ChevronBarDown } from "react-bootstrap-icons";
 import { useReactFlow } from "reactflow";
 
 const SELECT_NODE = [
-  { code: "Gp", name: "Input" },
-  { code: "St", name: "Output" },
+  { code: "Gp", name: "New input" },
+  { code: "St", name: "New output" },
 ];
 
-export default function SelectNodeForCreation() {
+export default function SelectNodeForCreation () {
   const { setNodes } = useReactFlow();
 
   const onProviderClick = ({ name, code }: { name: string; code: string }) => {
-    const location = Math.random() * 500;
+    const location = Math.random() * 200;
 
     setNodes((prevNodes) => [
       ...prevNodes,

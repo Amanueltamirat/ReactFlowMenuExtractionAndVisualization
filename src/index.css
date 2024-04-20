@@ -1,7 +1,7 @@
 body{
   font-family: sans-serif;
   background-color: lightgray;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .app .container{
@@ -12,9 +12,14 @@ margin-left: 1rem;
 overflow: hidden;
 
 }
+.app h1{
+  color: rgb(64, 62, 62);
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
 .app h1 span{
 color: blue;
-font-family: 'Times New Roman', Times, serif;
+font-family: 'Times New Roman';
 }
 /* css for menu extraction*/
 .menu_extracter {
@@ -23,7 +28,7 @@ font-family: 'Times New Roman', Times, serif;
   gap: 10px;
   width: 30%;
   margin-right: 2rem;
-  
+  /* height: 100vh; */
  
 }
 .menu_extracter .upper-container textarea{
@@ -37,6 +42,7 @@ background-color: rgb(234, 233, 233);
 box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 .menu_extracter button{
+  cursor: pointer;
   display: flex;
   font-size: 18px;
   justify-content: center;
@@ -48,33 +54,51 @@ box-shadow: 0 0 5px rgba(0,0,0,0.5);
   width: 100%;
   margin-top: 10px;
 margin-left: 10px;
+transition: all .5s;
+
 }
 .menu_extracter button:hover{
-  background-color: rgb(31, 28, 233);;
+  background-color: rgb(40, 37, 233);;
 }
 .menu_extracter .items  div  li{
   list-style: none;
-
+   padding: 5px;
 }
-.menu_extracter .items div li{
-background-color: lightgray;
-margin:5px 0;
-padding: 5px;
+.menu_extracter .items  div  li:hover{
+  background-color: rgb(105, 100, 100);
+ 
+}
+
+.menu_extracter .items{
+  border-top: 1px solid black;
 }
 /* css for react flow */
 .react-flow{
   width: 100%;
-  background-color: rgba(0, 0, 0,0.7);
-  
+  background-color: rgba(22, 22, 22, 0.7);
+  background-attachment: fixed;
   overflow: hidden;
   position: relative;
+
 }
 .sliding-text-container{
-        position: absolute;
-        font-size: 20vh;
-        bottom: 40%;
-        white-space:nowrap;
-        color: #ffffff09;
-        width: 50%;
-        font-weight: bold;
-       }
+  position: absolute;
+  font-size: 20vh;
+  bottom: 20%;
+  white-space:nowrap;
+  color: #ffffff09;
+  width: 50%;
+  font-weight: bold;
+  }
+  .not-found{
+    color: rgb(166, 5, 5);
+  }
+  
+  @media (max-width:600px){
+    .app .container{
+      flex-direction: column;
+    }
+    .menu_extracter .upper-container textarea{
+      width: 80vw;
+    }
+  }
