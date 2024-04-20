@@ -21,8 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "ts-node-dev index.tsx",
-    "build": "tsc",
+    "start": "node ./build/index.js",
+    "build": "tsc ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

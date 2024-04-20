@@ -30,7 +30,7 @@ const textVariants = {
 
 };
 
-
+// "start": "ts-node-dev index.ts",
 
 function App() {
   return (
