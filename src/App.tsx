@@ -31,6 +31,7 @@ const textVariants = {
 };
 
 // "start": "ts-node-dev index.ts",
+// "start": "node index.tsx",
 
 function App() {
   return (
