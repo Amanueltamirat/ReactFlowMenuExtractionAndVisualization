@@ -28,13 +28,6 @@ export default function NodeProvider({
       display='flex'
       alignItems="center"
     >
-      {/* <Box h={4} w={4}>
-        <Image
-          height="100%"
-          width="100%"
-          src={NODE_PROVIDER[code]}
-        />
-      </Box> */}
       <Flex grow="1">
         <Text textAlign='center' fontSize="small" >
           {name}
@@ -53,6 +46,7 @@ export default function NodeProvider({
         }
       />
       <CustomHandle type="target" position={Position.Left} />
+      <CustomHandle type="target" position={Position.Right} />
     </Flex>
   );
 }

@@ -26,12 +26,12 @@ export default function SelectNodeForCreation() {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<ChevronBarDown />}>
+      <MenuButton border='none'  fontSize='20px' padding='5px' borderRadius='5px' as={Button} rightIcon={<ChevronBarDown />}>
         Create Node
       </MenuButton>
       <MenuList>
         {SELECT_NODE.map((provider) => (
-          <MenuItem onClick={() => onProviderClick(provider)}>
+          <MenuItem marginTop='-5px' fontSize='14px' padding='3px' width='100px' onClick={() => onProviderClick(provider)}>
             {provider.name}
           </MenuItem>
         ))}

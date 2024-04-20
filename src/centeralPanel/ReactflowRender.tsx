@@ -18,16 +18,9 @@ import CustomEdge from "./CustomEdge.tsx";
 import InputNode from "./InputNode.tsx";
 import SelectNodeForCreation from "./SelectNodeForCreation.tsx";
 import NodeProvider from "./NodeProvider.tsx";
-;
+import {motion} from 'framer-motion'
 
-const initialEdges: Edge[] = [
-  // {
-  //   id:'e1-2',
-  //   source:'1',
-  //   target:'2',
-  //   animated:true
-  // }
-];
+const initialEdges: Edge[] = [];
 const initialNodes: Node[] = [
   {
     id: "1",
@@ -67,6 +60,25 @@ const edgeTypes = {
   customEdge: CustomEdge,
 };
 
+
+const sliderVariants = {
+    initial:{
+        x:0,
+        
+    },
+     animate:{
+        x:'-120%',
+        transition:{
+        repeat:Infinity,
+        repeatType:'mirror',
+        duration:10,
+       
+        },
+
+    }
+}
+
+
 const ReactflowRender = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -97,6 +109,9 @@ const onConnect = useCallback(
         <Background/>
         <Controls/>
       </ReactFlow>
+       <motion.div  className='sliding-text-container' variants={sliderVariants} initial='initial' animate='animate'>
+           This is EPhone
+        </motion.div>
     </div>
   )
 };
