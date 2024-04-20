@@ -1,6 +1,7 @@
 {
   "name": "menu-extraction",
   "version": "0.1.0",
+  "main": "index.tsx",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
@@ -22,8 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "ts-node-dev index.js",
-    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "build": "npm install typescript && npx tsc && ./dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
