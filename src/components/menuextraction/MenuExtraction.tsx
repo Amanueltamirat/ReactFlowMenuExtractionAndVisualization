@@ -26,7 +26,7 @@ function extractMenuItems(inputText:any) {
   return (
     <div className="menu_extracter">
       <div className="upper-container">
-      <textarea placeholder="Search..." value={inputText} onChange={(e) => setInputText(e.target.value)} />
+      <textarea placeholder="Search(sample input:-1: Pizza)..." value={inputText} onChange={(e) => setInputText(e.target.value)} />
       <button onClick={handleExtractButtonClick}>Extract</button>
       </div>
       <div className="items">
@@ -51,7 +51,7 @@ function extractMenuItems(inputText:any) {
         ) : (
           clicked &&
           <div className="not-found">
-          <p>No valid menu items found</p>
+          <p>No valid menu items found!</p>
           </div>
         
         )}

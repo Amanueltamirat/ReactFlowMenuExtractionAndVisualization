@@ -45,7 +45,7 @@ export default function NodeProvider({
     
     >
       <Flex grow="1" _active={{color:'blue'}} onClick={() => onProviderClick(name, code)} _hover={{color:'blue'}}>
-        <Text textAlign='center' fontSize="12px" height='15px' >
+        <Text textAlign='center' fontSize="12px" height='12px' >
           {name} (duplicate me)
         </Text>
       </Flex>

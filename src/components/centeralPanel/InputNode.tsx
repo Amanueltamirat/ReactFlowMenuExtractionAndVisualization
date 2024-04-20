@@ -9,8 +9,8 @@ export default function InputNode({
   return (
 
     <Box bg="white" border="1px solid #5e5eff " borderRadius='50px' width='110px'>
-      <Box p={2}>
-        <Text _hover={{color:'blue'}} fontSize="14px" color="blue.600" textAlign='center' padding="0 2px">
+      <Box p={1}>
+        <Text _hover={{color:'blue'}} height='12px' fontSize="14px" color="blue.600" textAlign='center' padding="0 2px">
         Initial Node
         </Text>
       </Box>
